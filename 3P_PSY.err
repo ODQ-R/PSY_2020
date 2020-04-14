@@ -1,0 +1,24 @@
+  ##############################################################
+  #                            PSY                             #
+  #             Particle Systems Analysis Program              #
+  ##############################################################
+ 
+                                                Version 1.7     
+    (c) 2019            Developed by EDUARDO M. B. CAMPELLO     
+ 
+ CAUTION: make sure input data is compatible with the temperature dofs switch
+ CAUTION: make sure all thermal properties are provided for the material(s) and 
+ wall(s)
+ CAUTION: please recall that if electric and magnetic fields are zero their doma
+ in limits must not be defined in input file
+ CAUTION: fluid viscosity is zero. Drag forces and Re number will be ignored
+ CAUTION: fluid thermal conductiviy is zero. Convective heat transfer and Pr num
+ ber will be ignored
+ CAUTION: make sure the contact model is compatible with the adhesion forces swi
+ tch
+ CAUTION: please be careful as to specify all output control variables (e.g. do 
+ not miss the print_extra_results_file field)
+ 
+  ##############################################################
+  #                           END                              #
+  ##############################################################

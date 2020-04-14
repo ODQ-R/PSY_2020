@@ -1,0 +1,75 @@
+$system_name
+ "Three particles test. To validate a test program"
+$no_particles
+  3
+$rotational_dofs !on/off
+  on
+$temperature_dofs !on/off
+  on
+$particles_shape !spherical, ellipsoidal, etc  
+  spherical
+$particles_attributes_and_data  ! num, kind, radius, charge, matset_num, pressurf_num
+	1	thermomechanical_sphere		0.2	 0.0	1.0	0.0
+	2	thermomechanical_sphere	  	0.2	 0.0	1.0	0.0
+	3	thermomechanical_sphere	  	0.2	 0.0	1.0	0.0	
+$no_material_sets
+  1
+$material_sets_data  ! set_number, mass_dens, charge_dens, E, ni, contact_damp, friction_damp, e, mis, mid, rollres_coeff, rollres_damp_rate
+  1	29841.55	0.0	1.0E+10	 0.25	 0.1	 0.1	1.0	0.5	0.5	0.0	0.0
+$material_sets_thermal_properties ! matset_number, specific_heat, thermal_conduct, drag_heating_eff, radiative_eff, absorptance, degrading_temp (K)
+  1     1.0   0.0   0.0   0.0    0.0    0.0
+$particle_coordinates_and_initial_velocities  ! number, rx, ry, rz, vx, vy, vz, wx, wy, wz 
+  1	-1.0	 0.0	 		0.2	 1.7320508075688774	   1.0	   0.0    -5.0     8.660254037844387     0.0
+  2	 1.0	 0.0	 		0.2	-1.7320508075688774	   1.0	   0.0    -5.0    -8.660254037844387     0.0
+  3	 0.0	 1.7320508075688774	0.2	 0.0	  		  -2.0	   0.0    10.0     0.0                   0.0	
+$particle_initial_temperatures  ! number, temperature (in K)
+	1	3.00E+02
+	2	3.00E+02
+	3	3.00E+02
+$no_constrained_particles
+  0
+$no_particles_with_initial_given_forces_and_moments
+  0
+$no_rigid_walls
+  1
+$rigid_walls_properties  !wall_number, kind, charge, contdamp_rate, fricdamp_rate, e, mis, mid, rollres_coeff, rollres_damp_rate
+  1    flat_rigid_wall    0.0    0.1    0.1    1.0    0.5    0.5    0.0   0.0 
+$rigid_walls_geometry_and_velocity_data   !wall_number, initial_point_position, initial_outside_normal (or radius), initial_velocity (vx, vy, vz) (or harmonic amplitudes and frequencies)
+  1   0.0   0.0   0.0   0.0   0.0   -1.0   0.0   0.0   0.0
+$rigid_walls_thermal_properties  ! wall_number, thermal_kind, initial_temperature (K), initial_heating_rate (K/s) 
+  1   thermally_inactive   1000.0   0.0
+$external_fields_vectors  ! gravity (gx, gy, gz), electric field (Ex, Ey, Ez), magnetic field (Bx, By, Bz) 
+  0.0   0.0   -9.81   0.0   0.0   0.0   0.0   0.0   0.0
+$environment_fluid_properties   ! density, viscosity, velocity vector (vfx, vfy, vfz)
+  0.0   0.0   0.0   0.0   0.0    ! air = 1.225   1.8E-05   0.0   0.0   0.0
+$environment_fluid_thermal_properties   ! specific_heat, thermal_conductivity, temperature (in K)
+  0.0   0.0   0.0    ! air = 1.0E+3   0.025   273.0
+$nearfield_forces_switch  !on/off  !  
+  off
+$adhesion_forces_switch  !on/off
+  off
+$global_damping_coefficient
+  0.0
+$no_pressure_surfaces   !allowed only for a few sphere kinds
+  0
+$no_springs   !allowed only for a few sphere kinds
+  0
+$no_external_heating_devices
+  0
+$periodic_boundary_conditions  !on/off
+  off
+$grid_data    ! xi, xf, yi, yf, zi, zf, ndivx, ndivy, ndivz, delta_t_for_cell_list_update
+  -0.15    0.15    -0.10    0.10    -0.1    0.1    30    30    1    0.0005
+$verlet_lists_data   ! verlet_distance, delta_t_for_verlet_list_update
+  0.002    0.0005
+$solution_control_variables_1   ! problem_type, solver_type, contact_detection_algorithm, contact_model, rolling_resistance_model
+  thermomechanics   euler_explicit_solver_for_soft_spheres   loop_over_all_particles   hertz_with_stickslip_friction   elastic_plastic_spring_damper_torque
+$solution_control_variables_2   ! tolR, tolV, desired_no_iterations, max_no_iterations
+  1.0E-06   1.0E-06   4   20  
+$no_steps
+  1
+$step_control_variables   !step, initial_dt, dt_min, dt_max, final_time, adapt_time_step, collisions_duration_parameter
+  1   1.0E-04   1.0E-04   1.0E-04   2.0   off   0.01
+$output_control_variables  !results_file_format, dt_for_results_print, print_sysprops, print_rotdofs, print_extra_results
+  gid_format   0.01   no   yes   no
+$end

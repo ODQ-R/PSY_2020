@@ -1,0 +1,15 @@
+ MESH "Three particles test. To validate a test"  Dimension 3  ElemType Sphere  Nnode 1
+ 
+  Coordinates
+     #Particle      rx             ry             rz
+         1    -1.000000E+00   0.000000E+00   2.000000E-01
+         2     1.000000E+00   0.000000E+00   2.000000E-01
+         3     0.000000E+00   1.732051E+00   2.000000E-01
+  End Coordinates
+ 
+  Elements
+     #Particle     node       radius
+         1           1      2.000000E-01
+         2           2      2.000000E-01
+         3           3      2.000000E-01
+  End Elements
